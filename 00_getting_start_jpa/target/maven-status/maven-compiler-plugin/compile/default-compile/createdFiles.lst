@@ -1,0 +1,6 @@
+com\ultron\entities\Contact.class
+com\ultron\entities\Company.class
+com\ultron\entities\Member$Role.class
+com\ultron\entities\Sale.class
+com\ultron\entities\Member.class
+com\ultron\entities\SalePk.class
