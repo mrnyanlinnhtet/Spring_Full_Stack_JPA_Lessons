@@ -1,11 +1,5 @@
 package com.join.test;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -15,10 +9,7 @@ import com.join.entities.Category;
 import com.join.entities.Product;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class JoinTest {
-
-	EntityManagerFactory emf;
-	EntityManager em;
+public class JoinTest extends AbstractTest {
 
 	@Order(1)
 	@Test
@@ -56,16 +47,6 @@ public class JoinTest {
 		data.getResultList().stream().map(Product::getName).forEach(System.out::println);
 	}
 
-	@BeforeEach
-	void init() {
-		emf = Persistence.createEntityManagerFactory("JPU");
-		em = emf.createEntityManager();
-	}
-
-	@AfterEach
-	void terminate() {
-		em.close();
-		emf.close();
-	}
+	
 
 }
