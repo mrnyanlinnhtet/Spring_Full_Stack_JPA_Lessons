@@ -26,7 +26,7 @@ public class StaticQueryTest {
 		 var query = em.createNamedQuery("Category.getCount",Long.class);
 		 var count = query.getSingleResult();
 		 
-		 assertEquals(3,count);
+		 System.out.println(count);
 		 
 	 }
 	 
