@@ -11,7 +11,7 @@ import jakarta.transaction.Transactional;
 @Repository
 public class CourseRepo {
 
-	@PersistenceContext
+	@PersistenceContext(name = "JPU")
 	private EntityManager em;
 
 	@Transactional
