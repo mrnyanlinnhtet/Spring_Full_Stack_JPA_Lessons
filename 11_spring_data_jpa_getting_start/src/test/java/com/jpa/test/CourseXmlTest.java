@@ -8,12 +8,11 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
-import com.jpa.config.ApplicationConfig;
 import com.jpa.entities.Course;
 import com.jpa.repositories.CourseRepositroy;
 
-@SpringJUnitConfig(classes = ApplicationConfig.class)
-public class CourseJavaTest {
+@SpringJUnitConfig(locations = "classpath:/application.xml")
+public class CourseXmlTest {
 
 	@Autowired
 	private CourseRepositroy repo;
