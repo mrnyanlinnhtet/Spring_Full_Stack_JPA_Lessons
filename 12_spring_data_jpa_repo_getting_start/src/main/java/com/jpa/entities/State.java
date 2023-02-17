@@ -25,7 +25,7 @@ public class State implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private int id;
 	@Column(nullable = false, unique = true)
 	private String name;
 	@Column(nullable = false)
@@ -41,9 +41,30 @@ public class State implements Serializable {
 	public State() {
 
 	}
+	
+	
+
+	public State(String name, Type type, String region, String capital, int porpulation) {
+		super();
+		this.name = name;
+		this.type = type;
+		this.region = region;
+		this.capital = capital;
+		this.porpulation = porpulation;
+	}
+
+	public State(int id, String name, Type type, String region, String capital, int porpulation) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.type = type;
+		this.region = region;
+		this.capital = capital;
+		this.porpulation = porpulation;
+	}
 
 	public enum Type {
-		STATE("State"), DIVISION("Division"), UNION("Union Territory");
+		State("State"), Region("Region"), Union("Union Territory");
 
 		private String value;
 
