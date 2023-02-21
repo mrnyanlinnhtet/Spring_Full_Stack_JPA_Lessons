@@ -55,4 +55,5 @@ public class SaveMethodTest {
 						hasProperty("type", is(type)), hasProperty("region", is(region)),
 						hasProperty("capital", is(capital)), hasProperty("porpulation", is(porpulation))));
 	}
+	
 }
