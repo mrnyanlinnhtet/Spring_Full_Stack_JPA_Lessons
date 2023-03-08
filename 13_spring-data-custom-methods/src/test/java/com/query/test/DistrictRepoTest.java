@@ -54,4 +54,13 @@ public class DistrictRepoTest {
 		var result = repo.findForState(stateId, name.concat("%"));
 		assertThat(result, hasSize(size));
 	}
+
+	@Order(5)
+	@ParameterizedTest
+	@CsvSource(value = { "13,mon,3" })
+	void find_with_query_annotation(int stateId, String name, int size) {
+		var result = repo.findWithQueryAnnotation(stateId, name.concat("%"));
+		assertThat(result, hasSize(size));
+
+	}
 }

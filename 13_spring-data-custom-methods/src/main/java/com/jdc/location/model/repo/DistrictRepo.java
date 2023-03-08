@@ -24,4 +24,10 @@ public interface DistrictRepo extends JpaRepository<District, Integer> {
 	// Find By Sate Id and Name with Name Query
 	@Query(name = "District.findForState")
 	List<District> findForState(@Param("stateId") int stateId, @Param("name") String name);
+
+	@Query(value = """
+				SELECT d FROM District d WHERE d.state.id =:stateId AND
+			   LOWER(d.name) LIKE LOWER(:name) ORDER BY d.name
+				""")
+	List<District> findWithQueryAnnotation(@Param("stateId") int stateId, @Param("name") String name);
 }
