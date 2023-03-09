@@ -12,14 +12,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 import com.jdc.location.model.configuration.ApplicationConfig;
-import com.jdc.location.model.repositories.DistrictProjectionRepo;
+import com.jdc.location.model.repositories.DistrictInfProjectionRepo;
 
 @SpringJUnitConfig(classes = ApplicationConfig.class)
 @TestMethodOrder(OrderAnnotation.class)
 public class DistrictInfProjectionTest {
 
 	@Autowired
-	private DistrictProjectionRepo repo;
+	private DistrictInfProjectionRepo repo;
 
 	@Order(1)
 	@ParameterizedTest

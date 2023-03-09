@@ -9,7 +9,7 @@ import com.jdc.location.model.dto.StateValueDto;
 import com.jdc.location.model.dto.StateWithDistrictCountDto;
 import com.jdc.location.model.entity.State;
 
-public interface StateProjectionRepo extends JpaRepository<State, Integer> {
+public interface StateInfProjectionRepo extends JpaRepository<State, Integer> {
 
 	@Query("""
 			SELECT s.id id,s.name name,SIZE(s.district) districtCount

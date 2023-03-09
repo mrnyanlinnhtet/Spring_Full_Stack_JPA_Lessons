@@ -9,14 +9,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 import com.jdc.location.model.configuration.ApplicationConfig;
-import com.jdc.location.model.repositories.StateProjectionRepo;
+import com.jdc.location.model.repositories.StateInfProjectionRepo;
 
 @SpringJUnitConfig(classes = ApplicationConfig.class)
 @TestMethodOrder(OrderAnnotation.class)
 public class StateInfAggreProjectionTest {
 
 	@Autowired
-	private StateProjectionRepo repo;
+	private StateInfProjectionRepo repo;
 
 	@Order(1)
 	@ParameterizedTest
