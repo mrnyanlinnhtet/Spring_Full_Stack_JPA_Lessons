@@ -3,19 +3,37 @@ package com.jdc.location.model.entity;
 import java.io.Serializable;
 import java.util.List;
 
+import com.jdc.location.model.record_dto.StateWithDistrictCountDto;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
+import jakarta.persistence.ColumnResult;
+import jakarta.persistence.ConstructorResult;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.NamedNativeQuery;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.SqlResultSetMapping;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "state")
+@SqlResultSetMapping(name = "StateWithDistrictCountDto", classes = @ConstructorResult(targetClass = StateWithDistrictCountDto.class, columns = {
+		@ColumnResult(name = "id"), @ColumnResult(name = "name"),
+		@ColumnResult(name = "districtCount", type = Integer.class)
+
+})
+
+)
+@NamedNativeQuery(name = "State.stateWithNativeCount", resultSetMapping = "StateWithDistrictCountDto", query = """
+		SELECT s.id id , s.name name, (SELECT COUNT(1) FROM district d WHERE d.state_id = s.id) AS districtCount
+		FROM state s WHERE s.id = :id
+			""")
+
 public class State implements Serializable {
 
 	private static final long serialVersionUID = 1L;
