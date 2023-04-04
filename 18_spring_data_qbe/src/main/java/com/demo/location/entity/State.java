@@ -56,6 +56,15 @@ public class State implements Serializable {
 		}
 	}
 
+	public State() {
+
+	}
+
+	public State(String region) {
+		super();
+		this.region = region;
+	}
+
 	public int getId() {
 		return id;
 	}
